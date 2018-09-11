@@ -1,0 +1,21 @@
+:8081 {
+    root /welovecat.com
+}
+
+:8082 {
+    root /welovedog.com
+}
+
+welovecat.com:443 {
+    proxy / localhost:8081 {
+        transparent
+    }
+    tls self_signed
+}
+
+welovedog.com:443 {
+    proxy / localhost:8082 {
+        transparent
+    }
+    tls self_signed
+}
