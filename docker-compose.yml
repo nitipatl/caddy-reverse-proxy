@@ -1,0 +1,12 @@
+version: '3'
+services:
+    gateway:
+        image: abiosoft/caddy
+        command: ["-log", "stdout", "-agree", "-conf", "/etc/Caddyfile"]
+        ports:
+            - "443:443"
+        volumes:
+            - ./welovedog.com:/welovedog.com:ro
+            - ./welovecat.com:/welovecat.com:ro
+            - ./Caddyfile:/etc/Caddyfile:ro
+            - ./data/caddy:/root/.caddy
